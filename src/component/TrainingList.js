@@ -60,7 +60,7 @@ export default function Trainingslist  (props) {
 
         {   headerName: 'Activity', field: 'activity', sortable: true, floatingFilter: true,filter: true,  resizable: true   },
 
-        {   headerName: 'Date', field: 'date', cellRendererFramework: params => moment.utc(params).format('DD.MM.YYYY hh:mm a')},
+        {   headerName: 'Date', field: 'date', cellRendererFramework: params => moment.utc(params.value).format('DD.MM.YYYY hh:mm a')},
               
         {headerName: 'Duration', field:'duration', sortable: true, floatingFilter: true,filter: true},
         {

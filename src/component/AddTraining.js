@@ -69,6 +69,7 @@ export default function AddTraining(props) {
                 
                 <DateTimePicker
                     id="date"
+                    required="true"
                     onChange={(date) => inputDate(date)}
                     name="date"                         
                     value={date}

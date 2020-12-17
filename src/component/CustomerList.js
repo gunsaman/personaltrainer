@@ -89,7 +89,7 @@ export default function CustomerList() {
     }
 
     const columns = [
-        {headerName: 'Firstname', field:'firstname', sortable: true, floatingFilter: true,filter:true, checkboxSelection:true},
+        {headerName: 'Firstname', field:'firstname', sortable: true, floatingFilter: true,filter:true},
         {headerName: 'Lastname', field:'lastname', sortable: true,floatingFilter: true, filter: true},
         {headerName: 'Street addresss', field:'streetaddress', sortable: true,floatingFilter: true, filter: true},
         {headerName: 'Postcode', field:'postcode', sortable: true, floatingFilter: true,filter: true},
@@ -97,8 +97,8 @@ export default function CustomerList() {
         {headerName: 'Email', field:'email', sortable: true,floatingFilter: true, filter: true},
         {headerName: 'Phone', field:'phone', sortable: true, floatingFilter: true,filter: true},
         {
-            headerName: '',
-            width: 100,            
+            headerName: 'Trainings',
+            width:120,      
             field: 'content',
             cellRendererFramework: params =>    <AddTraining 
                                                     addTraining={addTraining} 
@@ -128,10 +128,10 @@ export default function CustomerList() {
     
     return (
         <div>
-            <div style={{marginLeft:'700px'}}>
+            <div style={{textAlign:'center'}}>
              <AddCustomer newCustomer={newCustomer} />
             </div>
-            <div className="ag-theme-material" style={{height:'600px', width:'70%', margin: 'auto'}}>
+            <div className="ag-theme-material" style={{height:'600px', width:'80%', marginLeft:250}}>
                 <AgGridReact
                     ref={gridRef}
                     onGridReady={params => {
@@ -143,6 +143,7 @@ export default function CustomerList() {
                     rowData={customers}
                     pagination={true}
                     paginationPageSize={10}
+                    suppressSizeToFit={true}
                    
                 >      
                 </AgGridReact>  
