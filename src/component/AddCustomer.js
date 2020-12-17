@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -9,8 +9,8 @@ import { TextField } from '@material-ui/core';
 
 export default function AddCustomer(props) {
 
-    const [open, setOpen] = React.useState(false);
-    const [customer, setCustomer] = React.useState({
+    const [isOpen, setIsOpen] = useState(false);
+    const [customer, setCustomer] = useState({
         firstname: '',
         lastname: '',
         streetaddress: '',
@@ -21,21 +21,19 @@ export default function AddCustomer(props) {
     });
 
     const handleClickOpen = () => {
-      setOpen(true);
+      setIsOpen(true);
     };
   
     const handleClose = () => {
-      setOpen(false);
+      setIsOpen(false);
     };
 
     const inputChanged =(event)=> {
         setCustomer({...customer, [event.target.name]:event.target.value})
-
     }
 
 
-    const handleSave =()=> {
-        
+    const handleSave =()=> {        
         props.newCustomer(customer);
         handleClose();
     }
@@ -46,7 +44,7 @@ export default function AddCustomer(props) {
             Add a New Customer
           </Button>
           <Dialog
-            open={open}
+            open={isOpen}
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"

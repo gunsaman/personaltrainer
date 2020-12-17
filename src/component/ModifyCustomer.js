@@ -9,7 +9,7 @@ import * as IoIcons from 'react-icons/io';
 
 export default function ModifyCustomer(props) {
 
-    const [open, setOpen] = React.useState(false);
+    const [isOpen, setIsOpen] = React.useState(false);
     const [customer, setCustomer] = React.useState({
         firstname:'', 
         lastname:'', 
@@ -32,11 +32,11 @@ export default function ModifyCustomer(props) {
             email: props.params.data.email,
             phone: props.params.data.phone
         }) 
-         setOpen(true);
+         setIsOpen(true);
     };
   
     const handleClose = () => {
-         setOpen(false);
+         setIsOpen(false);
     };
 
     const inputChanged =(event)=> {
@@ -56,7 +56,7 @@ export default function ModifyCustomer(props) {
             Edit
           </Button>
           <Dialog
-            open={open}
+            open={isOpen}
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
@@ -69,7 +69,7 @@ export default function ModifyCustomer(props) {
                 value={customer.firstname}
                 onChange={inputChanged}
                 margin="dense"
-                label="firstname"
+                label="First Name"
                 fullWidth
                 />
                 <TextField
@@ -77,7 +77,7 @@ export default function ModifyCustomer(props) {
                 value={customer.lastname}
                 onChange={inputChanged}
                 margin="dense"
-                label="lastname"
+                label="Last Name"
                 fullWidth
                 />
                 <TextField
@@ -85,7 +85,7 @@ export default function ModifyCustomer(props) {
                 value={customer.streetaddress}
                 onChange={inputChanged}
                 margin="dense"
-                label="streetaddress"
+                label="street Address"
                 fullWidth
                 />
                 <TextField
@@ -93,7 +93,7 @@ export default function ModifyCustomer(props) {
                 value={customer.postcode}
                 onChange={inputChanged}
                 margin="dense"
-                label="postcode"
+                label="Post Code"
                 fullWidth
                 />
                 <TextField
@@ -109,7 +109,7 @@ export default function ModifyCustomer(props) {
                 value={customer.email}
                 onChange={inputChanged}
                 margin="dense"
-                label="email"
+                label="Email Id"
                 fullWidth
                 />
                 <TextField
@@ -117,7 +117,7 @@ export default function ModifyCustomer(props) {
                 value={customer.phone}
                 onChange={inputChanged}
                 margin="dense"
-                label="phone"
+                label="Phone Number"
                 fullWidth
                 />
             </DialogContent>

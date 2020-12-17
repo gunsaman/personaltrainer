@@ -135,10 +135,8 @@ export default function CustomerList() {
                 <AgGridReact
                     ref={gridRef}
                     onGridReady={params => {
-                        gridRef.current = params.api;
-                        
-                        
-                    }}
+                        gridRef.current = params.api;                    
+                     }}
                     columnDefs = {columns}
                     rowData={customers}
                     pagination={true}
