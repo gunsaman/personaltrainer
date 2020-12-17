@@ -4,7 +4,7 @@ import NavBar from './component/NavBar'
 import TrainingList from './component/TrainingList';
 import ShowCalendar from './component/Calendar';
 import Statistics from './component/Statistics'
-import {BrowserRouter, Switch, Route, Link} from 'react-router-dom';
+import {Switch, Route, Link} from 'react-router-dom';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 

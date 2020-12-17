@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css'
-import AddTraining from './AddTraining';
+
 import { Snackbar } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {BsXCircle} from 'react-icons/bs'
