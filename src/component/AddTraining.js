@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -7,12 +7,15 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {BsFillPlusCircleFill} from 'react-icons/bs';
 
+import DateTimePicker from 'react-datetime-picker';
+
 import { TextField } from '@material-ui/core';
 
 export default function AddTraining(props) {
 
-    const [isOpen, setIsOpen] = React.useState(false);
-    const [training, setTraining] = React.useState({
+    const [isOpen, setIsOpen] = useState(false);
+    const [date, setDate] = useState(new Date());
+    const [training, setTraining] = useState({
         date: '',
         activity: '',
         customer: props.params.value,
@@ -27,7 +30,6 @@ export default function AddTraining(props) {
             customer: props.params.data.links[1].href,
         })
       setIsOpen(true);
-
     };
   
     const handleClose = () => {
@@ -37,6 +39,10 @@ export default function AddTraining(props) {
     const inputChanged =(event)=> {
         setTraining({...training, [event.target.name]:event.target.value})
 
+    }
+    const inputDate = (date) => {
+        setDate(date);
+        setTraining({...training, date: date.toISOString()});
     }
 
 
@@ -59,14 +65,13 @@ export default function AddTraining(props) {
             <DialogTitle id="alert-dialog-title">Add New Customer</DialogTitle>
             <DialogContent>
                 
-                <TextField
-                autoFocus
-                name ="date"
-                value={training.date}
-                onChange={inputChanged}
-                margin="dense"
-                label="Date"
-                fullWidth
+                    
+                
+                <DateTimePicker
+                    id="date"
+                    onChange={(date) => inputDate(date)}
+                    name="date"                         
+                    value={date}
                 />
                 <TextField
                 name ="activity"
